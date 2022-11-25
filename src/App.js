@@ -14,7 +14,6 @@ import { VideoPlayer } from './Components/VideoPlayer';
 
 let bg1 = './Assets/Videos/bg2.mp4';
 let bg2 = './Assets/Videos/bg3.mp4';
-let bg4 = './Assets/Videos/bg4.mp4';
 
 
 function App() {
@@ -29,13 +28,11 @@ function App() {
 
 
   let secondsToFinish = Math.round(distance * 0.001);
-  console.log("Segudos restantes: ", secondsToFinish)
 
   body.style.animationPlayState = runCountCownFinish ? 'running' : 'pause';
 
   useEffect(() => {
     const distanceToBirthday = Math.round((targetDate - now) * 0.001);
-    console.log("rendered first time", distanceToBirthday);
     if (distanceToBirthday > 0 && step === 1) {
       InicializeTimer(targetDate, setDistance);
     }else{
@@ -97,8 +94,6 @@ function App() {
           <BirthdayCard setStep={setStep} />
         </div>
       }
-
-    {step === 5 && <VideoPlayer video={bg4} showGift={showGift} setShowGift={setShowGift} /> }
 
     </div>
   );
