@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 import { useVideoPlayer } from "./Hooks/useVideoPlayer";
-const VideoPlayer = ({video ,showGift, setShowGift}) => {
+const VideoPlayer = ({video, showGift, setShowGift, hasToShowGift = false}) => {
 
     const videoElement = useRef(null);
     const {
@@ -9,7 +9,7 @@ const VideoPlayer = ({video ,showGift, setShowGift}) => {
     } = useVideoPlayer(videoElement);
 
     useEffect(() => {
-        if (!showGift && playerState.progress >= 40)
+        if (!showGift && hasToShowGift && playerState.progress >= 40)
             setShowGift(true);
     }, [playerState.progress])
 

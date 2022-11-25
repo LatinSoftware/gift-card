@@ -14,19 +14,18 @@ import { VideoPlayer } from './Components/VideoPlayer';
 
 let bg1 = './Assets/Videos/bg2.mp4';
 let bg2 = './Assets/Videos/bg3.mp4';
+let bg4 = './Assets/Videos/bg4.mp4';
 
 
 function App() {
   const body = document.querySelector('body');
-  // const targetDate = new Date("Jan 10, 2023 00:00:00").getTime();
   const now = new Date().getTime();
-  const targetDate = new Date('Wed Nov 26 2022 18:03:00');
+  const targetDate = new Date('Jan 10 2023 00:00:00');
 
-  const [distance, setDistance] = useState(targetDate)
-  const [step, setStep] = useState(2);
+  const [distance, setDistance] = useState()
+  const [step, setStep] = useState(1);
   const [runCountCownFinish, setRunCountCownFinish] = useState(false);
   const [showGift, setShowGift] = useState(false);
-
 
 
   let secondsToFinish = Math.round(distance * 0.001);
@@ -35,16 +34,17 @@ function App() {
   body.style.animationPlayState = runCountCownFinish ? 'running' : 'pause';
 
   useEffect(() => {
-    console.log("rendered first time");
     const distanceToBirthday = Math.round((targetDate - now) * 0.001);
+    console.log("rendered first time", distanceToBirthday);
     if (distanceToBirthday > 0 && step === 1) {
       InicializeTimer(targetDate, setDistance);
+    }else{
+      setStep(2);
     }
   }, [])
 
   useEffect(() => {
-    console.log("rendered when distance and second to finish");
-    if (secondsToFinish !== 20)
+    if (secondsToFinish !== 24)
       return;
     setStep(2);
 
@@ -62,7 +62,6 @@ function App() {
         onComplete: () => {
           setStep(3);
           setRunCountCownFinish(true);
-
         }
       })
     }
@@ -82,7 +81,7 @@ function App() {
     <div className="App">
       {step === 1 &&
         <React.Fragment>
-          <VideoPlayer video={bg1} showGift={showGift} />
+          <VideoPlayer video={bg1} showGift={showGift} setShowGift={setShowGift} />
           <CountdownTimer
             timerHeader=<TimerHeader />
             timerClock=<Timer />
@@ -92,12 +91,14 @@ function App() {
 
       {step === 2 && <div className='box' />}
       {step === 3 && <CountdownFinish />}
-      {step === 4 && <VideoPlayer video={bg2} showGift={showGift} setShowGift={setShowGift} /> }
-      {showGift &&
+      {step === 4 && <VideoPlayer video={bg2} showGift={showGift} setShowGift={setShowGift} hasToShowGift={true} /> }
+      {showGift && step === 4 &&
         <div className='BirthdayCard__container'>
-          <BirthdayCard />
+          <BirthdayCard setStep={setStep} />
         </div>
       }
+
+    {step === 5 && <VideoPlayer video={bg4} showGift={showGift} setShowGift={setShowGift} /> }
 
     </div>
   );
