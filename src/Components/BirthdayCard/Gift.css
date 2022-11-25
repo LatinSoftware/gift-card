@@ -269,4 +269,5 @@ input#click {
 
 #click:checked~.sparkles {
     display: block;
+    z-index: 1;
 }
