@@ -4,7 +4,7 @@ const useVideoPlayer = (videoElement) => {
 
     
     const [playerState, setPlayerState] = useState({
-        isPlaying: false,
+        isPlaying: true,
         progress: 0,
         speed: 1,
         isMuted: true,
