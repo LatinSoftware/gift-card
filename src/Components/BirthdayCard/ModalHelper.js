@@ -7,10 +7,10 @@ function OpenModal()  {
 }
 
 function CloseModal () {
-    console.log("close")
     var modalContainer = document.querySelector("#modal-container");
     modalContainer.classList.add('out');
     document.querySelector("#modal-container").classList.remove('modal-active');
+    document.querySelector(".modal-content").classList.add('active');
 }
 
 function findActiveContent(contentList) {
@@ -18,19 +18,22 @@ function findActiveContent(contentList) {
         return e.classList.contains('active');
     })
 
-    contentList[activeContent].classList.remove('active', 'fadeInRight');
+    if(activeContent < 0)
+        return 0;
+
+    contentList[activeContent].classList.remove('active', 'fadeInRight', 'animated');
     return activeContent
 }
 
 function SlideText(contentList) {
     let activeList = findActiveContent(contentList)
-
-    console.log(`activeList ${activeList} -- contentList.length ${activeList}`)
     activeList++
     if(activeList === contentList.length){
+        document.getElementById("next").innerText = "Continuar";
+        activeList = 0;
         return CloseModal()
     }
-
+    
     if (activeList === 10) {
         document.getElementById("next").innerText = "Finalizar";
     }
