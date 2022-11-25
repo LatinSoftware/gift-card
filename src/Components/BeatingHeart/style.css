@@ -1,0 +1,23 @@
+.beating_heart{
+    position: absolute;
+    top:78%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.beating_heart .heart__icon{
+    color: red;
+    font-size:50px;
+    filter: drop-shadow(0 0 10px red);
+    animation: heart_beat 0.8s infinite;
+}
+@keyframes heart_beat {
+    0%{
+        transform: scale(1.10);
+    }
+    30%{
+        transform: scale(1.4);
+    }
+    60%{
+        transform: scale(1.9);
+    }
+}

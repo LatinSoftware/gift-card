@@ -1,0 +1,190 @@
+:root {
+    --light: hsl(220, 50%, 90%);
+    --primary: hsl(255, 30%, 55%);
+    --focus: hsl(210, 90%, 50%);
+    --border-color: hsla(0, 0%, 100%, .2);
+    --global-background: hsl(220, 25%, 10%);
+    --background: linear-gradient(to right, hsl(210, 30%, 20%), hsl(255, 30%, 25%));
+    --shadow-1: hsla(236, 50%, 50%, .3);
+    --shadow-2: hsla(236, 50%, 50%, .4);
+}
+
+a,
+a:link {
+    font-family: inherit;
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+
+/* using :target */
+/*
+  when users will click/enter button(link) browser will add a #id in a url and when that happens we'll show our users the modal that contains that id.
+  */
+
+.modal {
+    width: 100%;
+    padding: 4rem 2rem;
+    border-radius: .8rem;
+    color: var(--light);
+    background: var(--background);
+    box-shadow: var(--m-shadow, .4rem .4rem 10.2rem .2rem) var(--shadow-1);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 0.5fr 2fr 0.5fr;
+}
+
+.modal__container {
+    overflow: hidden;
+}
+
+.modal-content {
+    display: none;
+}
+
+.modal-content.active {
+    display: block;
+}
+
+.modal__title {
+    font-size: 3.2rem;
+}
+
+.modal__text {
+    padding: 0 4rem;
+    font-size: 1.6rem;
+}
+
+.modal__btn {
+    margin-top: 4rem;
+    padding: 1rem 1.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: 100rem;
+
+    color: inherit;
+    background: transparent;
+    font-size: 1.4rem;
+    font-family: inherit;
+    letter-spacing: .2rem;
+
+    transition: .2s;
+    cursor: pointer;
+}
+
+.modal__btn:nth-of-type(1) {
+    margin-right: 1rem;
+    justify-self: center;
+}
+
+.modal__btn:hover,
+.modal__btn:focus {
+    background: var(--focus);
+    border-color: var(--focus);
+    transform: translateY(-.2rem);
+}
+
+
+/* link-... */
+.link-1 {
+    font-size: 1.8rem;
+
+    color: var(--light);
+    background: var(--background);
+    box-shadow: .4rem .4rem 2.4rem .2rem var(--shadow-1);
+    border-radius: 100rem;
+    padding: 1.4rem 3.2rem;
+
+    transition: .2s;
+}
+
+.link-1:hover,
+.link-1:focus {
+    transform: translateY(-.2rem);
+    box-shadow: 0 0 4.4rem .2rem var(--shadow-2);
+}
+
+.link-1:focus {
+    box-shadow:
+        0 0 4.4rem .2rem var(--shadow-2),
+        0 0 0 .4rem var(--global-background),
+        0 0 0 .5rem var(--focus);
+}
+
+.link-2 {
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid var(--border-color);
+    border-radius: 100rem;
+
+    color: inherit;
+    font-size: 2.2rem;
+
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: .2s;
+}
+
+.link-2::before {
+    content: '×';
+
+    transform: translateY(-.1rem);
+}
+
+.link-2:hover,
+.link-2:focus {
+    background: var(--focus);
+    border-color: var(--focus);
+    transform: translateY(-.2rem);
+}
+
+.custom_message p{
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+@media (min-width: 320px) {
+    .modal {
+        width: 100vw;
+        height: 80vh;
+    }
+
+    .modal__text {
+        padding: 0;
+    }
+    .modal__title {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 600px) {
+    .modal {
+        width: 80vw;
+    }
+
+}
+
+.fadeInRight{
+    animation: fadeInRight 1s ease-in-out;
+}
+
+@keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(300px);
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
