@@ -10,7 +10,7 @@ import './ModalAnimation.css';
 import { useEffect } from 'react';
 
 
-const BirthdayCard = () => {
+const BirthdayCard = ({setStep}) => {
 
     const Close = (e) => {
         e.preventDefault();
@@ -22,6 +22,12 @@ const BirthdayCard = () => {
         const nextBtn = document.querySelector("#next");
         nextBtn.addEventListener("click", () => {
             SlideText(contentList);
+            let activeContent = findActiveContent(contentList);
+            console.log(activeContent, contentList.length);
+            if(activeContent === 0){
+                setTimeout(() => setStep(5), 3000);
+            }
+
         });
     }, [])
 
@@ -164,5 +170,14 @@ const BirthdayCard = () => {
     )
 }
 
+function findActiveContent(contentList) {
+    let activeContent = contentList.findIndex(e => {
+        return e.classList.contains('active');
+    })
+
+    if(activeContent < 0)
+        return 0;
+    return activeContent
+}
 
 export { BirthdayCard }

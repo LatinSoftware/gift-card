@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import Timer from './Components/Timer/Index';
@@ -12,20 +12,23 @@ import './App.css';
 import { VideoPlayer } from './Components/VideoPlayer';
 
 
-let bg1 = './Assets/Videos/bg2.mp4';
-let bg2 = './Assets/Videos/bg3.mp4';
+let bg1 = './gift-card/Assets/Videos/bg2.mp4';
+let bg2 = './gift-card/Assets/Videos/bg3.mp4';
+let bg3 = './gift-card/Assets/Videos/bg4.mp4';
+let music = './gift-card/Assets/Audio/music.mp3';
 
 
 function App() {
   const body = document.querySelector('body');
   const now = new Date().getTime();
-  const targetDate = new Date('Jan 10 2023 00:00:00');
+  // const targetDate = new Date('Jan 10 2023 00:00:00');
+  const targetDate = new Date('Dec 09 2022 00:00:00');
 
   const [distance, setDistance] = useState()
   const [step, setStep] = useState(1);
   const [runCountCownFinish, setRunCountCownFinish] = useState(false);
   const [showGift, setShowGift] = useState(false);
-
+  const audioElement = useRef();
 
   let secondsToFinish = Math.round(distance * 0.001);
 
@@ -50,6 +53,7 @@ function App() {
   useEffect(() => {
 
     if (step === 2) {
+      audioElement.current.play();
       var boxBg = document.querySelector('.box');
       gsap.to(boxBg, {
         scale: 25,
@@ -70,12 +74,17 @@ function App() {
       });
     }
 
+
   }, [step, body]);
 
 
 
   return (
     <div className="App">
+      <audio ref={audioElement} >
+        <source src={music} type="audio/mpeg" />
+      </audio>
+
       {step === 1 &&
         <React.Fragment>
           <VideoPlayer video={bg1} showGift={showGift} setShowGift={setShowGift} />
@@ -94,6 +103,14 @@ function App() {
           <BirthdayCard setStep={setStep} />
         </div>
       }
+
+      {step === 5 && <VideoPlayer 
+                        video={bg3} 
+                        showGift={false} 
+                        setShowGift={setShowGift} 
+                        hasToShowGift={false} 
+                        speed={1.75}
+                        /> }
 
     </div>
   );
