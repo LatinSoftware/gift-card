@@ -36,7 +36,7 @@ function App() {
   body.style.animationPlayState = runCountCownFinish ? 'running' : 'pause';
 
   body.addEventListener("click", () => {
-    if(isPlaying) return;
+    if(isPlaying && step <= 1) return;
     audioElement.current.play();
     audioElement.current.muted = false;
     setPlaying(true);
