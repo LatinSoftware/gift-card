@@ -21,9 +21,7 @@ let music = './Assets/Audio/music.mp3';
 function App() {
   const body = document.querySelector('body');
   const now = new Date().getTime();
-  // const targetDate = new Date('Jan 10 2023 00:00:00');
-  const targetDate = new Date('Dec 09 2022 00:00:00');
-
+  const targetDate = new Date('Jan 10 2023 00:00:00');
   const [distance, setDistance] = useState()
   const [step, setStep] = useState(1);
   const [runCountCownFinish, setRunCountCownFinish] = useState(false);

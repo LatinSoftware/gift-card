@@ -71,7 +71,7 @@ const BirthdayCard = ({setStep}) => {
                             </div>
                             <div className="modal-content">
                                 <p className="modal__text">
-                                    Primeramente, feliz 19 años (cara lagrimita). Espero que hoy sea un día super increíble para
+                                    Primeramente, feliz 19 años 😀. Espero que hoy sea un día super increíble para
                                     ti, te
                                     llenen de mucho amor, compartas con tus seres queridos, me mande mi bizcocho y que sientas
                                     que el mundo
@@ -108,7 +108,7 @@ const BirthdayCard = ({setStep}) => {
                             </div>
                             <div className="modal-content">
                                 <p className="modal__text">
-                                    Espero que este año te den todo el amor que te mereces y en verdad te merece un montón.
+                                    Espero que este año te den todo el amor que te mereces y en verdad te mereces un montón.
                                     Espero que
                                     empieces a luchar por tus sueños, no dejes que nadie te diga que no puedes logarlos. Yo
                                     confió en que si
