@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/gift-card/static/css/main.ffb94cd7.css",
-    "main.js": "/gift-card/static/js/main.8c4a0708.js",
+    "main.css": "/gift-card/static/css/main.17a9ca7e.css",
+    "main.js": "/gift-card/static/js/main.ddb4f908.js",
     "index.html": "/gift-card/index.html",
-    "main.ffb94cd7.css.map": "/gift-card/static/css/main.ffb94cd7.css.map",
-    "main.8c4a0708.js.map": "/gift-card/static/js/main.8c4a0708.js.map"
+    "main.17a9ca7e.css.map": "/gift-card/static/css/main.17a9ca7e.css.map",
+    "main.ddb4f908.js.map": "/gift-card/static/js/main.ddb4f908.js.map"
   },
   "entrypoints": [
-    "static/css/main.ffb94cd7.css",
-    "static/js/main.8c4a0708.js"
+    "static/css/main.17a9ca7e.css",
+    "static/js/main.ddb4f908.js"
   ]
 }
