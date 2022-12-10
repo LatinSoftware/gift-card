@@ -53,7 +53,8 @@ function App() {
   useEffect(() => {
 
     if (step === 2) {
-      audioElement.current.play();
+      var audioBtn = document.getElementById("audio-btn");
+      audioBtn.click();
       var boxBg = document.querySelector('.box');
       gsap.to(boxBg, {
         scale: 25,
@@ -78,10 +79,14 @@ function App() {
   }, [step, body]);
 
 
+  const handleClick = () => {
+      audioElement.current.play();
+  }
 
   return (
     <div className="App">
-      <audio ref={audioElement} muted="muted" >
+      <button id="audio-btn" onClick={handleClick}>Play</button>
+      <audio ref={audioElement}>
         <source src={music} type="audio/mpeg" />
       </audio>
 
