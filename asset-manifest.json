@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/gift-card/static/css/main.ffb94cd7.css",
-    "main.js": "/gift-card/static/js/main.c2ecb520.js",
+    "main.js": "/gift-card/static/js/main.7aae2410.js",
     "index.html": "/gift-card/index.html",
     "main.ffb94cd7.css.map": "/gift-card/static/css/main.ffb94cd7.css.map",
-    "main.c2ecb520.js.map": "/gift-card/static/js/main.c2ecb520.js.map"
+    "main.7aae2410.js.map": "/gift-card/static/js/main.7aae2410.js.map"
   },
   "entrypoints": [
     "static/css/main.ffb94cd7.css",
-    "static/js/main.c2ecb520.js"
+    "static/js/main.7aae2410.js"
   ]
 }
