@@ -81,7 +81,7 @@ function App() {
 
   return (
     <div className="App">
-      <audio ref={audioElement} >
+      <audio ref={audioElement} muted="muted" >
         <source src={music} type="audio/mpeg" />
       </audio>
 
