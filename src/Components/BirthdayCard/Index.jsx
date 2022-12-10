@@ -23,7 +23,6 @@ const BirthdayCard = ({setStep}) => {
         nextBtn.addEventListener("click", () => {
             SlideText(contentList);
             let activeContent = findActiveContent(contentList);
-            console.log(activeContent, contentList.length);
             if(activeContent === 0){
                 setTimeout(() => setStep(5), 3000);
             }
