@@ -28,11 +28,19 @@ function App() {
   const [step, setStep] = useState(1);
   const [runCountCownFinish, setRunCountCownFinish] = useState(false);
   const [showGift, setShowGift] = useState(false);
+  const [isPlaying, setPlaying] = useState(false);
   const audioElement = useRef();
 
   let secondsToFinish = Math.round(distance * 0.001);
 
   body.style.animationPlayState = runCountCownFinish ? 'running' : 'pause';
+
+  body.addEventListener("click", () => {
+    if(isPlaying) return;
+    audioElement.current.play();
+    audioElement.current.muted = false;
+    setPlaying(true);
+  });
 
   useEffect(() => {
     const distanceToBirthday = Math.round((targetDate - now) * 0.001);
@@ -53,8 +61,6 @@ function App() {
   useEffect(() => {
 
     if (step === 2) {
-      var audioBtn = document.getElementById("audio-btn");
-      audioBtn.click();
       var boxBg = document.querySelector('.box');
       gsap.to(boxBg, {
         scale: 25,
@@ -78,15 +84,9 @@ function App() {
 
   }, [step, body]);
 
-
-  const handleClick = () => {
-      audioElement.current.play();
-  }
-
   return (
     <div className="App">
-      <button id="audio-btn" onClick={handleClick}>Play</button>
-      <audio ref={audioElement}>
+      <audio ref={audioElement} muted preload='true' >
         <source src={music} type="audio/mpeg" />
       </audio>
 
