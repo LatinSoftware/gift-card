@@ -4,8 +4,8 @@ import './style.css';
 const TimerHeader = () => {
 
     const title = 'celebration icon';
-    const img = './gift-card/Assets/Images/icon1.svg';
-    const crownImg = './gift-card/Assets/Images/crown.png';
+    const img = './Assets/Images/icon1.svg';
+    const crownImg = './Assets/Images/crown.png';
     const crownTitle = 'corona de princesa';
     return (
         <div className='TimerHeader'>

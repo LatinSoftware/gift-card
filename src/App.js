@@ -12,10 +12,10 @@ import './App.css';
 import { VideoPlayer } from './Components/VideoPlayer';
 
 
-let bg1 = './gift-card/Assets/Videos/bg2.mp4';
-let bg2 = './gift-card/Assets/Videos/bg3.mp4';
-let bg3 = './gift-card/Assets/Videos/bg4.mp4';
-let music = './gift-card/Assets/Audio/music.mp3';
+let bg1 = './Assets/Videos/bg2.mp4';
+let bg2 = './Assets/Videos/bg3.mp4';
+let bg3 = './Assets/Videos/bg4.mp4';
+let music = './Assets/Audio/music.mp3';
 
 
 function App() {
