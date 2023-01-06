@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import Timer from './Components/Timer/Index';
@@ -24,10 +24,9 @@ import ReactPlayer from 'react-player';
 function App() {
   const body = document.querySelector('body');
   const now = new Date().getTime();
-  // const targetDate = new Date('Jan 10 2023 00:00:00');
-  const targetDate = new Date('Jan 06 2023 10:38:00');
+  const targetDate = new Date('Jan 10 2023 00:00:00');
   const [distance, setDistance] = useState()
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(1);
   const [runCountCownFinish, setRunCountCownFinish] = useState(false);
   const [showGift, setShowGift] = useState(false);
 
@@ -101,13 +100,17 @@ function App() {
         </div>
       }
 
-      {step === 5 && <VideoPlayer 
-                        video={bg3} 
-                        showGift={false} 
-                        setShowGift={setShowGift} 
-                        hasToShowGift={false} 
-                        speed={1.75}
-                        /> }
+      {step === 5 && <ReactPlayer
+            url={bg3}
+            controls={false}
+            playing={true}
+            width="0"
+            height="auto"
+            muted={false}
+            className="video"
+            
+          />
+       }
 
     </div>
   );

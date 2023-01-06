@@ -1,5 +1,5 @@
-import { faL } from '@fortawesome/free-solid-svg-icons';
-import React, { useRef } from 'react';
+
+import React from 'react';
 import ReactPlayer from 'react-player';
 
 function AudioPlayer({url, state}) {
