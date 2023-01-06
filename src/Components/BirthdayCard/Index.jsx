@@ -111,7 +111,7 @@ const BirthdayCard = ({setStep}) => {
                                     Espero que este año te den todo el amor que te mereces y en verdad te mereces un montón.
                                     Espero que
                                     empieces a luchar por tus sueños, no dejes que nadie te diga que no puedes logarlos. Yo
-                                    confió en que si
+                                    confío en que si
                                     puedes (espero poder estar para verte cumplirlos).
                                 </p>
                             </div>
