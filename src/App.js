@@ -10,35 +10,31 @@ import { BirthdayCard } from './Components/BirthdayCard/Index';
 
 import './App.css';
 import { VideoPlayer } from './Components/VideoPlayer';
+import AudioPlayer from './Components/AudioPlayer';
 
 
-let bg1 = './Assets/Videos/bg2.mp4';
-let bg2 = './Assets/Videos/bg3.mp4';
-let bg3 = './Assets/Videos/bg4.mp4';
-let music = './Assets/Audio/music.mp3';
+import bg1 from './Assets/Videos/bg2.mp4';
+import bg2 from './Assets/Videos/bg3.mp4';
+import bg3 from './Assets/Videos/bg4.mp4';
+import music from './Assets/Audio/music.mp3';
+import ReactPlayer from 'react-player';
+
 
 
 function App() {
   const body = document.querySelector('body');
   const now = new Date().getTime();
-  const targetDate = new Date('Jan 10 2023 00:00:00');
+  // const targetDate = new Date('Jan 10 2023 00:00:00');
+  const targetDate = new Date('Jan 06 2023 10:38:00');
   const [distance, setDistance] = useState()
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [runCountCownFinish, setRunCountCownFinish] = useState(false);
   const [showGift, setShowGift] = useState(false);
-  const [isPlaying, setPlaying] = useState(false);
-  const audioElement = useRef();
+
 
   let secondsToFinish = Math.round(distance * 0.001);
 
   body.style.animationPlayState = runCountCownFinish ? 'running' : 'pause';
-
-  body.addEventListener("click", () => {
-    if(isPlaying && step <= 1) return;
-    audioElement.current.play();
-    audioElement.current.muted = false;
-    setPlaying(true);
-  });
 
   useEffect(() => {
     const distanceToBirthday = Math.round((targetDate - now) * 0.001);
@@ -84,9 +80,7 @@ function App() {
 
   return (
     <div className="App">
-      <audio ref={audioElement} muted preload='true' >
-        <source src={music} type="audio/mpeg" />
-      </audio>
+      <AudioPlayer url={music} state={step}  />
 
       {step === 1 &&
         <React.Fragment>

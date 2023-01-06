@@ -1,11 +1,11 @@
 import React from 'react'
 import './style.css';
+import img from '../../Assets/Images/icon1.svg';
+import crownImg from '../../Assets/Images/crown.png';
 
 const TimerHeader = () => {
 
     const title = 'celebration icon';
-    const img = './Assets/Images/icon1.svg';
-    const crownImg = './Assets/Images/crown.png';
     const crownTitle = 'corona de princesa';
     return (
         <div className='TimerHeader'>
